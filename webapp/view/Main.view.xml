@@ -1,0 +1,880 @@
+<mvc:View controllerName="DPROP.controller.Main" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns:tnt="sap.tnt" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:acc="DPROP.control" xmlns:l="sap.ui.layout" xmlns:vk="sap.ui.vk"
+	xmlns:unified="sap.ui.unified">
+	<tnt:ToolHeader id="brandHeader" class="brandHeader">
+		<Image src="images/DeloitteLogo.png" height="15px" class="sapUiMediumMarginBegin sapUiTinyMarginTop sapUiTinyMarginBottom"/>
+		<ToolbarSpacer/>
+		<ToolbarSpacer/>
+		<Image src="images/SAPLogo.png" height="20px" class="sapUiMediumMarginEnd sapUiTinyMarginTop sapUiTinyMarginBottom"/>
+	</tnt:ToolHeader>
+	<App id="SplitApp1">
+		<Page id="videoPage" title="Deloitte Digital Twin" class="sapUiStdPage test bgImage" showHeader="false">
+			<content>
+				<!--<Button text="O" press="changeView"/>-->
+				<!--<Button text="Break" press="breakOpenModel"/>-->
+				<VBox id="statisticsView" width="100%" visible="true">
+					<HBox id="warning_panel" width="27%" height="20%" justifyContent="Center" alignItems="Center"
+						class="sapUiSmallMarginBegin sapUiSmallMarginTop shipTile">
+						<core:Icon src="sap-icon://alert" color="#BB0000" class="sapUiMediumMargin" size="2em"/>
+						<VBox width="75%" height="100%" alignItems="Start">
+							<Text text="New Task Group Required" class="detailShip"></Text>
+							<Text text="Mission 'Alpha' 01/02/2018 - 30/04/2018" class="detailStatusCount"/>
+						</VBox>
+					</HBox>
+					<VBox id="siri_model" width="700px" class="floatPanel2" height="220px" visible="true">
+						<HBox width="100%">
+							<VBox width="425px" height="220px" class="floatSubPanel">
+								<Text class="statusText sapUiMediumMargin" id="twinText" text=""></Text>
+							</VBox>
+							<VBox width="225px" height="220px" class="floatSubPanel">
+								<VBox width="100%" height="50%" class="floatSubPanel2">
+									<Image src="./images/navy.jpg" width="100%" height="108px"/>
+								</VBox>
+								<VBox width="100%" height="50%" alignItems="Center" justifyContent="Center">
+									<Label text="Navy Twin" class="missionType" design="Bold"></Label>
+								</VBox>
+							</VBox>
+							<VBox width="50px" height="220px" class="floatSubPanel" alignItems="Center">
+								<core:Icon id="microIcon" src="sap-icon://microphone" color="#F2F2F2" class="sapUiTinyMargin" size="2em"/>
+								<core:Icon id="soundIcon" src="sap-icon://sound-loud" color="#F2F2F2" class="sapUiTinyMargin" size="2em"/>
+								<core:Icon src="sap-icon://sys-enter" color="#F2F2F2" class="sapUiTinyMargin" press="changeView" size="2em"/>
+								<core:Icon src="sap-icon://action-settings" color="#F2F2F2" class="sapUiTinyMargin" press="breakOpenModel" size="2em"/>
+							</VBox>
+						</HBox>
+					</VBox>
+					<!--<VBox id="warning_panel" width="99%" justifyContent="Center" alignItems="Center" class="sapUiTinyMargin sapUiLargeMarginTop floatPanel"-->
+					<!--	height="70%" visible="false">-->
+					<!--	<VBox width="35%" height="40%" justifyContent="Center" alignItems="Center" class="shipTile">-->
+					<!--		<core:Icon src="sap-icon://alert" color="#BB0000" class="sapUiMediumMargin" size="7em"/>-->
+					<!--		<Text text="New Task Group Required!" class="detailShip"></Text>-->
+					<!--		<Text text="Mission 'Alpha' 01/02/2018 - 30/04/2018" class="detailStatusCount"/>-->
+					<!--	</VBox>-->
+					<!--</VBox>-->
+					<VBox id="mission_panel" width="99%" justifyContent="Center" class="sapUiTinyMargin sapUiLargeMarginTop floatPanel" height="70%"
+						visible="false">
+						<l:Grid defaultSpan="L4 M6 S12" vSpacing="1" class="floatPanelBorderless sapUiSmallMargin">
+							<VBox width="auto" height="250px" alignItems="Center" justifyContent="Center" class="missionTile sapUiSmallMargin">
+								<Label text="Mission A" class="missionType sapUiSmallMargin"/>
+								<Label text="Workup" class="missionDescription sapUiTinyMargin" design="Bold"/>
+							</VBox>
+							<VBox width="auto" height="250px" alignItems="Center" justifyContent="Center" class="missionTile sapUiSmallMargin">
+								<Label text="Mission B" class="missionType sapUiSmallMargin"/>
+								<Label text="Disaster Relief" class="missionDescription sapUiTinyMargin" design="Bold"/>
+							</VBox>
+							<VBox width="auto" height="250px" alignItems="Center" justifyContent="Center" class="missionTile sapUiSmallMargin">
+								<Label text="Mission C" class="missionType sapUiSmallMargin"/>
+								<Label text="Diplomatic Mission" class="missionDescription sapUiTinyMargin" design="Bold"/>
+							</VBox>
+						</l:Grid>
+						<l:Grid defaultSpan="L4 M6 S12" vSpacing="0" class="floatPanelBorderless sapUiSmallMargin">
+							<VBox width="auto" height="250px" alignItems="Center" justifyContent="Center" class="missionTile sapUiSmallMargin">
+								<Label text="Mission D" class="missionType sapUiSmallMargin"/>
+								<Label text="Patrol" class="missionDescription sapUiTinyMargin" design="Bold"/>
+							</VBox>
+							<VBox width="auto" height="250px" alignItems="Center" justifyContent="Center" class="missionTile sapUiSmallMargin">
+								<Label text="Mission E" class="missionType sapUiSmallMargin"/>
+								<Label text="Relocation" class="missionDescription sapUiTinyMargin" design="Bold"/>
+							</VBox>
+							<VBox width="auto" height="250px" alignItems="Center" justifyContent="Center" class="missionTile sapUiSmallMargin">
+								<Label text="Mission F" class="missionType sapUiSmallMargin"/>
+								<Label text="Task Group Escort" class="missionDescription sapUiTinyMargin" design="Bold"/>
+							</VBox>
+						</l:Grid>
+					</VBox>
+					<HBox id="calendar_panel" width="99%" class="sapUiTinyMargin sapUiLargeMarginTop floatPanel" height="70%" justifyContent="Center"
+						alignItems="Center" visible="true">
+						<VBox width="69%" height="98%" class="missionTile sapUiSmallMargin">
+							<!--<Button text="asj" press="buttonPress"/>-->
+							<PlanningCalendar id="PC1" startDate="{path: '/startDate'}" viewKey="Month" rows="{path: '/people'}" appointmentsVisualization="Filled"
+								appointmentSelect="handleAppointmentSelect" intervalSelect="handleIntervalSelect" showEmptyIntervalHeaders="false"
+								showIntervalHeaders="false" class="calendarColor calendarHeight">
+								<toolbarContent>
+									<Title text="Mission Plan" titleStyle="H4"/>
+								</toolbarContent>
+								<rows>
+									<PlanningCalendarRow id="PR1" icon="{pic}" title="{name}" text="{role}" appointments="{path : 'appointments', templateShareable: 'true'}"
+										intervalHeaders="{path: 'headers', templateShareable: 'true'}">
+										<appointments>
+											<unified:CalendarAppointment startDate="{start}" endDate="{end}" icon="{pic}" title="{title}" text="{info}" type="{type}"
+												tentative="{tentative}"></unified:CalendarAppointment>
+										</appointments>
+										<intervalHeaders>
+											<unified:CalendarAppointment startDate="{start}" endDate="{end}" icon="{pic}" title="{title}" type="{type}"></unified:CalendarAppointment>
+										</intervalHeaders>
+									</PlanningCalendarRow>
+								</rows>
+							</PlanningCalendar>
+						</VBox>
+						<FlexBox width="31%" height="98%" id="map_canvas" class="sapUiSmallMarginTopBottom sapUiSmallMarginEnd" fitContainer="true"/>
+					</HBox>
+					<VBox id="ship_panel" width="99%" justifyContent="Center" alignItems="Center" class="sapUiTinyMargin sapUiLargeMarginTop floatPanel"
+						height="70%" visible="false">
+						<VBox width="98%" height="96%" alignItems="Center" justifyContent="Center" class="missionTileSelect">
+							<VBox width="98%" height="96%" alignItems="Start" justifyContent="Start">
+								<HBox class="sapUiMediumMarginBottom">
+									<Label text="Your Most Likely Vessels -" class="detailStatus sapUiSmallMargin"></Label>
+									<Label text="Task Group Escort" class="sapUiSmallMarginTop detailStatus" design="Bold"></Label>
+								</HBox>
+								<!--<l:Grid defaultSpan="L2 M6 S12" vSpacing="2" hSpacing="2" position="Center" class="floatPanelBorderless sapUiLargeMargin">-->
+								<!--	<VBox>-->
+								<!--		<GenericTile class="sapUiMediumTinyBegin sapUiMediumMarginEnd shipTile tileWidth" header="HMAS Canberra" subheader="LHD"-->
+								<!--			frameType="OneByOne">-->
+								<!--			<tileContent>-->
+								<!--				<TileContent class="successChance" unit="Chance of Success">-->
+								<!--					<content>-->
+								<!--						<NumericContent class="successIcon" icon="sap-icon://sys-enter-2" value="95" valueColor="Good" scale="%" truncateValueTo="5"/>-->
+								<!--					</content>-->
+								<!--				</TileContent>-->
+								<!--			</tileContent>-->
+								<!--		</GenericTile>-->
+								<!--	</VBox>-->
+								<!--	<VBox>-->
+								<!--		<GenericTile class="sapUiMediumTinyBegin sapUiMediumMarginEnd shipTile tileWidth" header="HMAS Success" subheader="Supply"-->
+								<!--			frameType="OneByOne">-->
+								<!--			<tileContent>-->
+								<!--				<TileContent class="errorChance" unit="Chance of Success">-->
+								<!--					<content>-->
+								<!--						<NumericContent class="errorIcon" icon="sap-icon://alert" value="23" valueColor="Error" scale="%" truncateValueTo="5"/>-->
+								<!--					</content>-->
+								<!--				</TileContent>-->
+								<!--			</tileContent>-->
+								<!--		</GenericTile>-->
+								<!--		<VBox width="14rem" justifyContent="Center" alignItems="Center" height="3rem" class="descTile">-->
+								<!--			<Label text="Requires EMP shortening by 20 days"/>-->
+								<!--		</VBox>-->
+								<!--	</VBox>-->
+								<!--	<VBox>-->
+								<!--		<GenericTile class="sapUiMediumTinyBegin sapUiMediumMarginEnd shipTile tileWidth" header="HMAS Adelaide" subheader="LHD"-->
+								<!--			frameType="OneByOne">-->
+								<!--			<tileContent>-->
+								<!--				<TileContent class="successChance" unit="Chance of Success">-->
+								<!--					<content>-->
+								<!--						<NumericContent class="successIcon" icon="sap-icon://sys-enter-2" value="93" valueColor="Good" scale="%" truncateValueTo="5"/>-->
+								<!--					</content>-->
+								<!--				</TileContent>-->
+								<!--			</tileContent>-->
+								<!--		</GenericTile>-->
+								<!--	</VBox>-->
+								<!--	<VBox>-->
+								<!--		<GenericTile class="sapUiMediumTinyBegin sapUiMediumMarginEnd shipTile tileWidth" header="HMAS Waterhen" subheader="DDG"-->
+								<!--			frameType="OneByOne">-->
+								<!--			<tileContent>-->
+								<!--				<TileContent class="successChance" unit="Chance of Success">-->
+								<!--					<content>-->
+								<!--						<NumericContent class="successIcon" icon="sap-icon://sys-enter-2" value="88" valueColor="Good" scale="%" truncateValueTo="5"/>-->
+								<!--					</content>-->
+								<!--				</TileContent>-->
+								<!--			</tileContent>-->
+								<!--		</GenericTile>-->
+								<!--	</VBox>-->
+								<!--	<VBox>-->
+								<!--		<GenericTile class="sapUiMediumTinyBegin sapUiMediumMarginEnd shipTile tileWidth" header="HMAS Perth" subheader="Frigate"-->
+								<!--			frameType="OneByOne">-->
+								<!--			<tileContent>-->
+								<!--				<TileContent class="errorChance" unit="Chance of Success">-->
+								<!--					<content>-->
+								<!--						<NumericContent class="errorIcon" icon="sap-icon://alert" value="55" valueColor="Error" scale="%" truncateValueTo="5"/>-->
+								<!--					</content>-->
+								<!--				</TileContent>-->
+								<!--			</tileContent>-->
+								<!--		</GenericTile>-->
+								<!--		<VBox width="14rem" justifyContent="Center" alignItems="Center" height="3rem" class="descTile">-->
+								<!--			<Label text="Undergoing Maintenance"/>-->
+								<!--		</VBox>-->
+								<!--	</VBox>-->
+								<!--	<VBox>-->
+								<!--		<GenericTile class="sapUiMediumTinyBegin sapUiMediumMarginEnd shipTileSelect tileWidth" header="HMAS Ballarat" subheader="Frigate"-->
+								<!--			frameType="OneByOne">-->
+								<!--			<tileContent>-->
+								<!--				<TileContent class="errorChance" unit="Chance of Success">-->
+								<!--					<content>-->
+								<!--						<NumericContent class="errorIcon" icon="sap-icon://alert" value="33" valueColor="Error" scale="%" truncateValueTo="5"/>-->
+								<!--					</content>-->
+								<!--				</TileContent>-->
+								<!--			</tileContent>-->
+								<!--		</GenericTile>-->
+								<!--		<VBox width="14rem" justifyContent="Center" alignItems="Center" height="3rem" class="descTileSelect">-->
+								<!--			<Label text="Requires EMP extension by 40 days"/>-->
+								<!--		</VBox>-->
+								<!--	</VBox>-->
+								<!--</l:Grid>-->
+								<HBox width="100%" height="100%" class="sapUiMediumMarginTop" justifyContent="SpaceAround">
+									<VBox width="300px" height="200px" class="shipTile" alignItems="Center">
+										<HBox width="99%" height="30%" justifyContent="SpaceBetween">
+											<Label width="150%" height="100%" text="94%" class="sapUiMediumMargin goodPercent"></Label>
+											<VBox width="30%" height="100%" alignItems="Start" class="sapUiMediumMarginTop">
+												<Label text="Likelihood" class="goodLikelihood"></Label>
+												<Label text="of Mission" class="goodLikelihood"></Label>
+												<Label text="Success" class="goodLikelihood"></Label>
+											</VBox>
+										</HBox>
+										<HBox width="90%" height="30%"></HBox>
+										<HBox width="99%" height="30%">
+											<VBox width="70%" height="100%">
+												<Label text="HMAS Canberra" class="sapUiMediumMarginBegin hmasName"></Label>
+												<Label text="LHD" class="sapUiMediumMarginBegin hmasType"></Label>
+											</VBox>
+											<VBox width="30%" height="100%" alignItems="Start" justifyContent="Start">
+												<core:Icon src="sap-icon://sys-enter-2" color="#CECECE" size="3em"/>
+											</VBox>
+										</HBox>
+									</VBox>
+									<VBox width="300px" height="250px" class="shipTile" alignItems="Center">
+										<VBox width="300px" height="200px" class="shipTile" alignItems="Center">
+											<HBox width="99%" height="30%" justifyContent="SpaceBetween">
+												<Label width="150%" height="100%" text="24%" class="sapUiMediumMargin errorPercent"></Label>
+												<VBox width="30%" height="100%" alignItems="Start" class="sapUiMediumMarginTop">
+													<Label text="Likelihood" class="errorLikelihood"></Label>
+													<Label text="of Mission" class="errorLikelihood"></Label>
+													<Label text="Success" class="errorLikelihood"></Label>
+												</VBox>
+											</HBox>
+											<HBox width="90%" height="30%"></HBox>
+											<HBox width="99%" height="30%">
+												<VBox width="70%" height="100%">
+													<Label text="HMAS Hobart" class="sapUiMediumMarginBegin hmasName"></Label>
+													<Label text="DDG" class="sapUiMediumMarginBegin hmasType"></Label>
+												</VBox>
+												<VBox width="30%" height="100%" alignItems="Start" justifyContent="Start">
+													<core:Icon src="sap-icon://alert" color="#BB0000" size="3em"/>
+												</VBox>
+											</HBox>
+										</VBox>
+										<VBox width="300px" justifyContent="Center" alignItems="Center" height="40px" class="descTile">
+											<Label text="Undergoing Maintenance" class="goodLikelihood"/>
+										</VBox>
+									</VBox>
+									<VBox width="300px" height="250px" class="shipTile" alignItems="Center">
+										<VBox width="300px" height="200px" class="shipTile" alignItems="Center">
+											<HBox width="99%" height="30%" justifyContent="SpaceBetween">
+												<Label width="150%" height="100%" text="0%" class="sapUiMediumMargin errorPercent"></Label>
+												<VBox width="30%" height="100%" alignItems="Start" class="sapUiMediumMarginTop">
+													<Label text="Likelihood" class="errorLikelihood"></Label>
+													<Label text="of Mission" class="errorLikelihood"></Label>
+													<Label text="Success" class="errorLikelihood"></Label>
+												</VBox>
+											</HBox>
+											<HBox width="90%" height="30%"></HBox>
+											<HBox width="99%" height="30%">
+												<VBox width="70%" height="100%">
+													<Label text="HMAS Success" class="sapUiMediumMarginBegin hmasName"></Label>
+													<Label text="Supply" class="sapUiMediumMarginBegin hmasType"></Label>
+												</VBox>
+												<VBox width="30%" height="100%" alignItems="Start" justifyContent="Start">
+													<core:Icon src="sap-icon://alert" color="#BB0000" size="3em"/>
+												</VBox>
+											</HBox>
+										</VBox>
+										<VBox width="300px" justifyContent="Center" alignItems="Center" height="40px" class="descTile">
+											<Label text="Requires EMP extension by 30 days" class="goodLikelihood"/>
+										</VBox>
+									</VBox>
+									<VBox width="300px" height="200px" class="shipTile" alignItems="Center">
+										<HBox width="99%" height="30%" justifyContent="SpaceBetween">
+											<Label width="150%" height="100%" text="98%" class="sapUiMediumMargin goodPercent"></Label>
+											<VBox width="30%" height="100%" alignItems="Start" class="sapUiMediumMarginTop">
+												<Label text="Likelihood" class="goodLikelihood"></Label>
+												<Label text="of Mission" class="goodLikelihood"></Label>
+												<Label text="Success" class="goodLikelihood"></Label>
+											</VBox>
+										</HBox>
+										<HBox width="90%" height="30%"></HBox>
+										<HBox width="99%" height="30%">
+											<VBox width="70%" height="100%">
+												<Label text="HMAS Parramatta" class="sapUiMediumMarginBegin hmasName"></Label>
+												<Label text="Frigate" class="sapUiMediumMarginBegin hmasType"></Label>
+											</VBox>
+											<VBox width="30%" height="100%" alignItems="Start" justifyContent="Start">
+												<core:Icon src="sap-icon://sys-enter-2" color="#CECECE" size="3em"/>
+											</VBox>
+										</HBox>
+									</VBox>
+								</HBox>
+								<HBox width="100%" height="100%" class="sapUiMediumMarginTop" justifyContent="SpaceAround">
+									<VBox width="300px" height="200px" class="shipTile" alignItems="Center">
+										<HBox width="99%" height="30%" justifyContent="SpaceBetween">
+											<Label width="150%" height="100%" text="97%" class="sapUiMediumMargin goodPercent"></Label>
+											<VBox width="30%" height="100%" alignItems="Start" class="sapUiMediumMarginTop">
+												<Label text="Likelihood" class="goodLikelihood"></Label>
+												<Label text="of Mission" class="goodLikelihood"></Label>
+												<Label text="Success" class="goodLikelihood"></Label>
+											</VBox>
+										</HBox>
+										<HBox width="90%" height="30%"></HBox>
+										<HBox width="99%" height="30%">
+											<VBox width="70%" height="100%">
+												<Label text="HMAS Darwin" class="sapUiMediumMarginBegin hmasName"></Label>
+												<Label text="Frigate" class="sapUiMediumMarginBegin hmasType"></Label>
+											</VBox>
+											<VBox width="30%" height="100%" alignItems="Start" justifyContent="Start">
+												<core:Icon src="sap-icon://sys-enter-2" color="#CECECE" size="3em"/>
+											</VBox>
+										</HBox>
+									</VBox>
+									<VBox width="300px" height="200px" class="shipTile" alignItems="Center">
+										<HBox width="99%" height="30%" justifyContent="SpaceBetween">
+											<Label width="150%" height="100%" text="92%" class="sapUiMediumMargin goodPercent"></Label>
+											<VBox width="30%" height="100%" alignItems="Start" class="sapUiMediumMarginTop">
+												<Label text="Likelihood" class="goodLikelihood"></Label>
+												<Label text="of Mission" class="goodLikelihood"></Label>
+												<Label text="Success" class="goodLikelihood"></Label>
+											</VBox>
+										</HBox>
+										<HBox width="90%" height="30%"></HBox>
+										<HBox width="99%" height="30%">
+											<VBox width="70%" height="100%">
+												<Label text="HMAS Waller" class="sapUiMediumMarginBegin hmasName"></Label>
+												<Label text="Submarine" class="sapUiMediumMarginBegin hmasType"></Label>
+											</VBox>
+											<VBox width="30%" height="100%" alignItems="Start" justifyContent="Start">
+												<core:Icon src="sap-icon://sys-enter-2" color="#CECECE" size="3em"/>
+											</VBox>
+										</HBox>
+									</VBox>
+									<VBox width="300px" height="200px" alignItems="Center"></VBox>
+									<VBox width="300px" height="200px" alignItems="Center"></VBox>
+								</HBox>
+								<!--<l:Grid defaultSpan="L2 M6 S12" vSpacing="2" hSpacing="2" position="Center" class="floatPanelBorderless sapUiLargeMargin">-->
+								<!--	<VBox>-->
+								<!--		<GenericTile class="sapUiMediumTinyBegin sapUiMediumMarginEnd shipTile tileWidth" header="HMAS Parramatta" subheader="Frigate"-->
+								<!--			frameType="OneByOne">-->
+								<!--			<tileContent>-->
+								<!--				<TileContent class="successChance" unit="Chance of Success">-->
+								<!--					<content>-->
+								<!--						<NumericContent class="successIcon" icon="sap-icon://sys-enter-2" value="95" valueColor="Good" scale="%" truncateValueTo="5"/>-->
+								<!--					</content>-->
+								<!--				</TileContent>-->
+								<!--			</tileContent>-->
+								<!--		</GenericTile>-->
+								<!--	</VBox>-->
+								<!--	<VBox>-->
+								<!--		<GenericTile class="sapUiMediumTinyBegin sapUiMediumMarginEnd shipTileSelect tileWidth" header="HMAS Waller" subheader="Submarine"-->
+								<!--			frameType="OneByOne">-->
+								<!--			<tileContent>-->
+								<!--				<TileContent class="errorChance" unit="Chance of Success">-->
+								<!--					<content>-->
+								<!--						<NumericContent class="errorIcon" icon="sap-icon://alert" value="23" valueColor="Error" scale="%" truncateValueTo="5"/>-->
+								<!--					</content>-->
+								<!--				</TileContent>-->
+								<!--			</tileContent>-->
+								<!--		</GenericTile>-->
+								<!--		<VBox width="14rem" justifyContent="Center" alignItems="Center" height="3rem" class="descTileSelect">-->
+								<!--			<Label text="Requires EMP shortening by 20 days"/>-->
+								<!--		</VBox>-->
+								<!--	</VBox>-->
+								<!--	<VBox>-->
+								<!--		<GenericTile class="sapUiMediumTinyBegin sapUiMediumMarginEnd shipTileSelect tileWidth" header="HMAS Sirius" subheader="Supply"-->
+								<!--			frameType="OneByOne">-->
+								<!--			<tileContent>-->
+								<!--				<TileContent class="successChance" unit="Chance of Success">-->
+								<!--					<content>-->
+								<!--						<NumericContent class="successIcon" icon="sap-icon://sys-enter-2" value="95" valueColor="Good" scale="%" truncateValueTo="5"/>-->
+								<!--					</content>-->
+								<!--				</TileContent>-->
+								<!--			</tileContent>-->
+								<!--		</GenericTile>-->
+								<!--	</VBox>-->
+								<!--	<VBox>-->
+								<!--		<GenericTile class="sapUiMediumTinyBegin sapUiMediumMarginEnd shipTile tileWidth" header="HMAS Toowoomba" subheader="Frigate"-->
+								<!--			frameType="OneByOne">-->
+								<!--			<tileContent>-->
+								<!--				<TileContent class="errorChance" unit="Chance of Success">-->
+								<!--					<content>-->
+								<!--						<NumericContent class="errorIcon" icon="sap-icon://alert" value="47" valueColor="Error" scale="%" truncateValueTo="5"/>-->
+								<!--					</content>-->
+								<!--				</TileContent>-->
+								<!--			</tileContent>-->
+								<!--		</GenericTile>-->
+								<!--		<VBox width="14rem" justifyContent="Center" alignItems="Center" height="3rem" class="descTile">-->
+								<!--			<Label text="Undergoing Major Repairs"/>-->
+								<!--		</VBox>-->
+								<!--	</VBox>-->
+								<!--	<VBox>-->
+								<!--		<GenericTile class="sapUiMediumTinyBegin sapUiMediumMarginEnd shipTileSelect tileWidth" header="HMAS Darwin" subheader="Frigate"-->
+								<!--			frameType="OneByOne">-->
+								<!--			<tileContent>-->
+								<!--				<TileContent class="successChance" unit="Chance of Success">-->
+								<!--					<content>-->
+								<!--						<NumericContent class="successIcon" icon="sap-icon://sys-enter-2" value="95" valueColor="Good" scale="%" truncateValueTo="5"/>-->
+								<!--					</content>-->
+								<!--				</TileContent>-->
+								<!--			</tileContent>-->
+								<!--		</GenericTile>-->
+								<!--	</VBox>-->
+								<!--	<VBox>-->
+								<!--		<GenericTile class="sapUiMediumTinyBegin sapUiMediumMarginEnd shipTile tileWidth" header="HMAS Hobart" subheader="DDG" frameType="OneByOne">-->
+								<!--			<tileContent>-->
+								<!--				<TileContent class="errorChance" unit="Chance of Success">-->
+								<!--					<content>-->
+								<!--						<NumericContent class="errorIcon" icon="sap-icon://alert" value="23" valueColor="Error" scale="%" truncateValueTo="5"/>-->
+								<!--					</content>-->
+								<!--				</TileContent>-->
+								<!--			</tileContent>-->
+								<!--		</GenericTile>-->
+								<!--		<VBox width="14rem" justifyContent="Center" alignItems="Center" height="3rem" class="descTile">-->
+								<!--			<Label text="Requires EMP shortening by 20 days"/>-->
+								<!--		</VBox>-->
+								<!--	</VBox>-->
+								<!--</l:Grid>-->
+							</VBox>
+						</VBox>
+					</VBox>
+					<VBox id="detail_panel" width="99%" class="sapUiTinyMargin sapUiLargeMarginTop floatPanel" height="70%" justifyContent="Center"
+						alignItems="Center" visible="false">
+						<VBox width="99%" height="98%" alignItems="Center">
+							<HBox width="100%" height="35%" class="shipSelect sapUiSmallMargin" alignItems="Center">
+								<!--<VBox>-->
+								<!--	<Label class="detailShip sapUiSmallMarginBegin sapUiSmallMarginTop" text="HMAS Hobart"></Label>-->
+								<!--	<Label text="DDG" class="detailStatus sapUiSmallMarginBegin sapUiSmallMarginBottom"></Label>-->
+								<!--</VBox>-->
+								<!--<Label text="24%" class="detailPercent sapUiSmallMargin"></Label>-->
+								<VBox width="30%" height="100%">
+									<Label text="Selected Vessel" class="detailStatus sapUiSmallMargin"></Label>
+									<VBox width="270px" height="200px" class="shipTile sapUiSmallMarginBegin" alignItems="Center">
+										<VBox width="270px" height="160px" class="shipTile" alignItems="Center">
+											<HBox width="99%" height="30%" justifyContent="SpaceBetween">
+												<Label width="150%" height="100%" text="24%" class="sapUiMediumMarginBegin sapUiSmallMarginTop errorPercent"></Label>
+												<VBox width="30%" height="100%" alignItems="Start" class="sapUiSmallMarginTop">
+													<Label text="Likelihood" class="errorLikelihood"></Label>
+													<Label text="of Mission" class="errorLikelihood"></Label>
+													<Label text="Success" class="errorLikelihood"></Label>
+												</VBox>
+											</HBox>
+											<HBox width="90%" height="30%"></HBox>
+											<HBox width="99%" height="30%">
+												<VBox width="70%" height="100%">
+													<Label text="HMAS Hobart" class="sapUiMediumMarginBegin hmasName"></Label>
+													<Label text="DDG" class="sapUiMediumMarginBegin hmasType"></Label>
+												</VBox>
+												<VBox width="30%" height="100%" alignItems="Start" justifyContent="Start">
+													<core:Icon src="sap-icon://alert" color="#BB0000" size="3em"/>
+												</VBox>
+											</HBox>
+										</VBox>
+										<VBox width="240px" justifyContent="Center" alignItems="Center" height="32px" class="descTile">
+											<Label text="Undergoing Maintenance" class="goodLikelihood"/>
+										</VBox>
+									</VBox>
+								</VBox>
+								<VBox width="30%" height="100%" class="sapUiMediumMarginBegin">
+									<Label text="Alternative Vessels" class="detailStatus sapUiSmallMargin"></Label>
+									<HBox>
+									<VBox width="270px" height="200px" class="sapUiSmallMarginBegin" alignItems="Center">
+										<VBox width="270px" height="160px" class="shipTileError" alignItems="Center">
+											<HBox width="99%" height="30%" justifyContent="SpaceBetween">
+												<Label width="150%" height="100%" text="12%" class="sapUiMediumMarginBegin sapUiSmallMarginTop errorPercent"></Label>
+												<VBox width="30%" height="100%" alignItems="Start" class="sapUiSmallMarginTop">
+													<Label text="Likelihood" class="errorLikelihood"></Label>
+													<Label text="of Mission" class="errorLikelihood"></Label>
+													<Label text="Success" class="errorLikelihood"></Label>
+												</VBox>
+											</HBox>
+											<HBox width="90%" height="30%"></HBox>
+											<HBox width="99%" height="30%">
+												<VBox width="70%" height="100%">
+													<Label text="HMAS Brisbane" class="sapUiMediumMarginBegin hmasName"></Label>
+													<Label text="DDG" class="sapUiMediumMarginBegin hmasType"></Label>
+												</VBox>
+												<VBox width="30%" height="100%" alignItems="Start" justifyContent="Start">
+													<core:Icon src="sap-icon://alert" color="#BB0000" size="3em"/>
+												</VBox>
+											</HBox>
+										</VBox>
+					
+									</VBox>
+									<VBox width="270px" height="200px" class="sapUiLargeMarginBegin" alignItems="Center">
+										<VBox width="270px" height="160px" class="shipTileError" alignItems="Center">
+											<HBox width="99%" height="30%" justifyContent="SpaceBetween">
+												<Label width="150%" height="100%" text="0%" class="sapUiMediumMarginBegin sapUiSmallMarginTop errorPercent"></Label>
+												<VBox width="30%" height="100%" alignItems="Start" class="sapUiSmallMarginTop">
+													<Label text="Likelihood" class="errorLikelihood"></Label>
+													<Label text="of Mission" class="errorLikelihood"></Label>
+													<Label text="Success" class="errorLikelihood"></Label>
+												</VBox>
+											</HBox>
+											<HBox width="90%" height="30%"></HBox>
+											<HBox width="99%" height="30%">
+												<VBox width="70%" height="100%">
+													<Label text="HMAS Sydney" class="sapUiMediumMarginBegin hmasName"></Label>
+													<Label text="DDG" class="sapUiMediumMarginBegin hmasType"></Label>
+												</VBox>
+												<VBox width="30%" height="100%" alignItems="Start" justifyContent="Start">
+													<core:Icon src="sap-icon://alert" color="#BB0000" size="3em"/>
+												</VBox>
+											</HBox>
+										</VBox>
+									
+									</VBox>
+									</HBox>
+								</VBox>
+							</HBox>
+							<HBox width="100%" height="65%" class="sapUiSmallMarginTop detailTile">
+								<VBox width="50%" height="100%" class="">
+									<VBox width="100%" height="19%" justifyContent="Center">
+										<Label text="Mission Success Profile" class="sapUiSmallMargin detailProfile"/>
+									</VBox>
+									<VBox width="100%" height="81%" class="detailTileTopRight">
+										<HBox width="100%" height="33%" class="detailTileTop" alignItems="Center">
+											<VBox width="20%" height="100%" justifyContent="Center" alignItems="Center">
+												<Label text="Capability" class="sapUiSmallMargin detailFunction"></Label>
+											</VBox>
+											<VBox width="80%" height="100%" justifyContent="Center" alignItems="Center">
+												<ProgressIndicator class="sapUiSmallMargin progressWidth" percentValue="90" displayValue="90%" showValue="true" state="Success"
+													displayOnly="true"></ProgressIndicator>
+											</VBox>
+										</HBox>
+										<HBox width="100%" height="34%" class="detailTileTop" alignItems="Center">
+											<VBox width="20%" height="100%" justifyContent="Center" alignItems="Center">
+												<Label text="Availability" class="sapUiSmallMargin detailFunction"></Label>
+											</VBox>
+											<VBox width="80%" height="100%" justifyContent="Center" alignItems="Center">
+												<ProgressIndicator class="sapUiSmallMargin progressWidth" percentValue="60" displayValue="60%" showValue="true" state="Warning"
+													displayOnly="true"></ProgressIndicator>
+											</VBox>
+										</HBox>
+										<HBox width="100%" height="33%" class="detailTileTop" alignItems="Center">
+											<VBox width="20%" height="100%" justifyContent="Center" alignItems="Center">
+												<Label text="Reliability" class="sapUiSmallMargin detailFunction"></Label>
+											</VBox>
+											<VBox width="80%" height="100%" justifyContent="Center" alignItems="Center">
+												<ProgressIndicator class="sapUiSmallMargin progressWidth" percentValue="17" displayValue="17%" showValue="true" state="Error"
+													displayOnly="true"></ProgressIndicator>
+											</VBox>
+										</HBox>
+									</VBox>
+								</VBox>
+								<VBox width="50%" height="100%" class="">
+									<HBox width="100%" height="19%" alignItems="Center" justifyContent="SpaceAround">
+										<Label text="Extreme" class="detailStatus"></Label>
+										<Label text="High" class="detailStatus"></Label>
+										<Label text="Medium" class="detailStatus"></Label>
+										<Label text="Low" class="detailStatus"></Label>
+									</HBox>
+									<VBox width="100%" height="81%" class="detailTileTop">
+										<HBox width="100%" height="33%" class="detailTileTop" alignItems="Center" justifyContent="SpaceAround">
+											<Label text="-" class="detailStatusCount"></Label>
+											<Label text="-" class="detailStatusCount"></Label>
+											<Label text="-" class="detailStatusCount"></Label>
+											<Label text="-" class="detailStatusCount"></Label>
+										</HBox>
+										<HBox width="100%" height="34%" class="detailTileTop" alignItems="Center" justifyContent="SpaceAround">
+											<Label text="-" class="detailStatusCount"></Label>
+											<Label text="-" class="detailStatusCount"></Label>
+											<Label text="1" class="detailStatusCount"></Label>
+											<Label text="-" class="detailStatusCount"></Label>
+										</HBox>
+										<HBox width="100%" height="33%" class="detailTileTop" alignItems="Center" justifyContent="SpaceAround">
+											<Label text="1" class="detailStatusCount"></Label>
+											<Label text="2" class="detailStatusCount"></Label>
+											<Label text="1" class="detailStatusCount"></Label>
+											<Label text="-" class="detailStatusCount"></Label>
+										</HBox>
+									</VBox>
+								</VBox>
+							</HBox>
+						</VBox>
+					</VBox>
+					<VBox id="options_panel" width="99%" class="sapUiTinyMargin sapUiLargeMarginTop floatPanel" height="70%" justifyContent="Center"
+						alignItems="Center" visible="false">
+						<HBox width="99%" height="98%" justifyContent="SpaceAround" alignItems="Center">
+							<VBox width="31%" height="95%" class="missionTile">
+								<HBox width="100%" height="20%">
+									<VBox width="25%" height="100%" class="optionTileBottomRight" alignItems="Center" justifyContent="Center">
+										<Label text="Option" class="optionText"></Label>
+										<Label text="A" class="optionType"></Label>
+									</VBox>
+									<VBox width="75%" height="100%" class="optionTileBottom" justifyContent="Center">
+										<Text text="Repair existing coupling and increase lifespan by 3.2 years." class="sapUiTinyMargin detailStatus"></Text>
+									</VBox>
+								</HBox>
+								<VBox width="100%" height="60%" justifyContent="Center">
+									<VBox width="100%" height="30%" class="" alignItems="Start">
+										<VBox width="20%" height="100%" justifyContent="Center" alignItems="Start">
+											<Label text="Capability" class="sapUiSmallMarginBegin sapUiSmallMarginEnd detailStatus"></Label>
+										</VBox>
+										<VBox width="10%" height="100%" justifyContent="Center" alignItems="Center">
+											<ProgressIndicator class="sapUiSmallMarginBegin sapUiSmallMarginEnd sapUiSmallMarginBottom progressWidth" percentValue="95"
+												displayValue="95%" showValue="true" state="Success" displayOnly="true"></ProgressIndicator>
+										</VBox>
+									</VBox>
+									<VBox width="100%" height="30%" class="" alignItems="Start">
+										<VBox width="20%" height="100%" justifyContent="Center" alignItems="Start">
+											<Label text="Availability" class="sapUiSmallMarginBegin sapUiSmallMarginEnd detailStatus"></Label>
+										</VBox>
+										<VBox width="10%" height="100%" justifyContent="Center" alignItems="Center">
+											<ProgressIndicator class="sapUiSmallMarginBegin sapUiSmallMarginEnd sapUiSmallMarginBottom progressWidth" percentValue="90"
+												displayValue="90%" showValue="true" state="Success" displayOnly="true"></ProgressIndicator>
+										</VBox>
+									</VBox>
+									<VBox width="100%" height="30%" class="" alignItems="Start">
+										<VBox width="20%" height="100%" justifyContent="Center" alignItems="Start">
+											<Label text="Reliability" class="sapUiSmallMarginBegin sapUiSmallMarginEnd detailStatus"></Label>
+										</VBox>
+										<VBox width="10%" height="100%" justifyContent="Center" alignItems="Center">
+											<ProgressIndicator class="sapUiSmallMarginBegin sapUiSmallMarginEnd sapUiSmallMarginBottom progressWidth" percentValue="85"
+												displayValue="85%" showValue="true" state="Success" displayOnly="true"></ProgressIndicator>
+										</VBox>
+									</VBox>
+								</VBox>
+								<HBox width="100%" height="20%">
+									<VBox width="33%" height="100%" class="optionTileTopRight" alignItems="Center" justifyContent="Center">
+										<Label text="Duration" class="optionText"></Label>
+										<Label text="9 weeks" class="optionType"></Label>
+									</VBox>
+									<VBox width="34%" height="100%" class="optionTileTopRight" alignItems="Center" justifyContent="Center">
+										<Label text="Cost" class="optionText"></Label>
+										<Label text="$4M" class="optionType"></Label>
+									</VBox>
+									<VBox width="33%" height="100%" class="optionTileTop" alignItems="Center" justifyContent="Center">
+										<Label text="Success" class="optionText"></Label>
+										<Label text="90%" class="optionType"></Label>
+									</VBox>
+								</HBox>
+							</VBox>
+							<VBox width="31%" height="95%" class="missionTile">
+								<HBox width="100%" height="20%">
+									<VBox width="25%" height="100%" class="optionTileBottomRight" alignItems="Center" justifyContent="Center">
+										<Label text="Option" class="optionText"></Label>
+										<Label text="B" class="optionType"></Label>
+									</VBox>
+									<VBox width="75%" height="100%" class="optionTileBottom" justifyContent="Center">
+										<Text text="Restrict operations and allow for asset to be decommissioned over time." class="sapUiTinyMargin detailStatus"></Text>
+									</VBox>
+								</HBox>
+								<VBox width="100%" height="60%" justifyContent="Center">
+									<VBox width="100%" height="30%" class="" alignItems="Start">
+										<VBox width="20%" height="100%" justifyContent="Center" alignItems="Start">
+											<Label text="Capability" class="sapUiSmallMarginBegin sapUiSmallMarginEnd detailStatus"></Label>
+										</VBox>
+										<VBox width="10%" height="100%" justifyContent="Center" alignItems="Center">
+											<ProgressIndicator class="sapUiSmallMarginBegin sapUiSmallMarginEnd sapUiSmallMarginBottom progressWidth" percentValue="60"
+												displayValue="60%" showValue="true" state="Warning" displayOnly="true"></ProgressIndicator>
+										</VBox>
+									</VBox>
+									<VBox width="100%" height="30%" class="" alignItems="Start">
+										<VBox width="20%" height="100%" justifyContent="Center" alignItems="Start">
+											<Label text="Availability" class="sapUiSmallMarginBegin sapUiSmallMarginEnd detailStatus"></Label>
+										</VBox>
+										<VBox width="10%" height="100%" justifyContent="Center" alignItems="Center">
+											<ProgressIndicator class="sapUiSmallMarginBegin sapUiSmallMarginEnd sapUiSmallMarginBottom progressWidth" percentValue="78"
+												displayValue="78%" showValue="true" state="Success" displayOnly="true"></ProgressIndicator>
+										</VBox>
+									</VBox>
+									<VBox width="100%" height="30%" class="" alignItems="Start">
+										<VBox width="20%" height="100%" justifyContent="Center" alignItems="Start">
+											<Label text="Reliability" class="sapUiSmallMarginBegin sapUiSmallMarginEnd detailStatus"></Label>
+										</VBox>
+										<VBox width="10%" height="100%" justifyContent="Center" alignItems="Center">
+											<ProgressIndicator class="sapUiSmallMarginBegin sapUiSmallMarginEnd sapUiSmallMarginBottom progressWidth" percentValue="77"
+												displayValue="77%" showValue="true" state="Warning" displayOnly="true"></ProgressIndicator>
+										</VBox>
+									</VBox>
+								</VBox>
+								<HBox width="100%" height="20%">
+									<VBox width="33%" height="100%" class="optionTileTopRight" alignItems="Center" justifyContent="Center">
+										<Label text="Duration" class="optionText"></Label>
+										<Label text="14 weeks" class="optionType"></Label>
+									</VBox>
+									<VBox width="34%" height="100%" class="optionTileTopRight" alignItems="Center" justifyContent="Center">
+										<Label text="Cost" class="optionText"></Label>
+										<Label text="$2.8M" class="optionType"></Label>
+									</VBox>
+									<VBox width="33%" height="100%" class="optionTileTop" alignItems="Center" justifyContent="Center">
+										<Label text="Success" class="optionText"></Label>
+										<Label text="84%" class="optionType"></Label>
+									</VBox>
+								</HBox>
+							</VBox>
+							<VBox width="31%" height="95%" class="missionTile">
+								<HBox width="100%" height="20%">
+									<VBox width="25%" height="100%" class="optionTileBottomRight" alignItems="Center" justifyContent="Center">
+										<Label text="Option" class="optionText"></Label>
+										<Label text="C" class="optionType"></Label>
+									</VBox>
+									<VBox width="75%" height="100%" class="optionTileBottom" justifyContent="Center">
+										<Text text="Expedite in and replace the existing coupling." class="sapUiTinyMargin detailStatus"></Text>
+									</VBox>
+								</HBox>
+								<VBox width="100%" height="60%" justifyContent="Center">
+									<VBox width="100%" height="30%" class="" alignItems="Start">
+										<VBox width="20%" height="100%" justifyContent="Center" alignItems="Start">
+											<Label text="Capability" class="sapUiSmallMarginBegin sapUiSmallMarginEnd detailStatus"></Label>
+										</VBox>
+										<VBox width="10%" height="100%" justifyContent="Center" alignItems="Center">
+											<ProgressIndicator class="sapUiSmallMarginBegin sapUiSmallMarginEnd sapUiSmallMarginBottom progressWidth" percentValue="92"
+												displayValue="92%" showValue="true" state="Success" displayOnly="true"></ProgressIndicator>
+										</VBox>
+									</VBox>
+									<VBox width="100%" height="30%" class="" alignItems="Start">
+										<VBox width="20%" height="100%" justifyContent="Center" alignItems="Start">
+											<Label text="Availability" class="sapUiSmallMarginBegin sapUiSmallMarginEnd detailStatus"></Label>
+										</VBox>
+										<VBox width="10%" height="100%" justifyContent="Center" alignItems="Center">
+											<ProgressIndicator class="sapUiSmallMarginBegin sapUiSmallMarginEnd sapUiSmallMarginBottom progressWidth" percentValue="90"
+												displayValue="90%" showValue="true" state="Success" displayOnly="true"></ProgressIndicator>
+										</VBox>
+									</VBox>
+									<VBox width="100%" height="30%" class="" alignItems="Start">
+										<VBox width="20%" height="100%" justifyContent="Center" alignItems="Start">
+											<Label text="Reliability" class="sapUiSmallMarginBegin sapUiSmallMarginEnd detailStatus"></Label>
+										</VBox>
+										<VBox width="10%" height="100%" justifyContent="Center" alignItems="Center">
+											<ProgressIndicator class="sapUiSmallMarginBegin sapUiSmallMarginEnd sapUiSmallMarginBottom progressWidth" percentValue="97" displayValue="97%"
+												showValue="true" state="Success" displayOnly="true"></ProgressIndicator>
+										</VBox>
+									</VBox>
+								</VBox>
+								<HBox width="100%" height="20%">
+									<VBox width="33%" height="100%" class="optionTileTopRight" alignItems="Center" justifyContent="Center">
+										<Label text="Duration" class="optionText"></Label>
+										<Label text="5 weeks" class="optionType"></Label>
+									</VBox>
+									<VBox width="34%" height="100%" class="optionTileTopRight" alignItems="Center" justifyContent="Center">
+										<Label text="Cost" class="optionText"></Label>
+										<Label text="$6.1M" class="optionType"></Label>
+									</VBox>
+									<VBox width="33%" height="100%" class="optionTileTop" alignItems="Center" justifyContent="Center">
+										<Label text="Success" class="optionText"></Label>
+										<Label text="98%" class="optionType"></Label>
+									</VBox>
+								</HBox>
+							</VBox>
+						</HBox>
+					</VBox>
+					<VBox id="confirm_panel" width="99%" class="sapUiTinyMargin sapUiLargeMarginTop floatPanel" height="70%" justifyContent="Center"
+						alignItems="Center" visible="false">
+						<HBox width="99%" height="98%" justifyContent="Center" alignItems="Center">
+							<VBox width="31%" height="95%" class="sapUiLargeMarginBegin missionTileSelect">
+								<HBox width="100%" height="20%">
+									<VBox width="25%" height="100%" class="optionTileBottomRight" alignItems="Center" justifyContent="Center">
+										<Label text="Option" class="optionText"></Label>
+										<Label text="C" class="optionType"></Label>
+									</VBox>
+									<VBox width="75%" height="100%" class="optionTileBottom" justifyContent="Center">
+										<Text text="Expedite in and replace the existing coupling." class="sapUiTinyMargin detailStatus"></Text>
+									</VBox>
+								</HBox>
+								<VBox width="100%" height="60%" justifyContent="Center">
+									<VBox width="100%" height="30%" class="" alignItems="Start">
+										<VBox width="20%" height="100%" justifyContent="Center" alignItems="Start">
+											<Label text="Capability" class="sapUiSmallMarginBegin sapUiSmallMarginEnd detailStatus"></Label>
+										</VBox>
+										<VBox width="10%" height="100%" justifyContent="Center" alignItems="Center">
+											<ProgressIndicator class="sapUiSmallMarginBegin sapUiSmallMarginEnd sapUiSmallMarginBottom progressWidth" percentValue="92"
+												displayValue="92%" showValue="true" state="Success" displayOnly="true"></ProgressIndicator>
+										</VBox>
+									</VBox>
+									<VBox width="100%" height="30%" class="" alignItems="Start">
+										<VBox width="20%" height="100%" justifyContent="Center" alignItems="Start">
+											<Label text="Availability" class="sapUiSmallMarginBegin sapUiSmallMarginEnd detailStatus"></Label>
+										</VBox>
+										<VBox width="10%" height="100%" justifyContent="Center" alignItems="Center">
+											<ProgressIndicator class="sapUiSmallMarginBegin sapUiSmallMarginEnd sapUiSmallMarginBottom progressWidth" percentValue="90"
+												displayValue="90%" showValue="true" state="Success" displayOnly="true"></ProgressIndicator>
+										</VBox>
+									</VBox>
+									<VBox width="100%" height="30%" class="" alignItems="Start">
+										<VBox width="20%" height="100%" justifyContent="Center" alignItems="Start">
+											<Label text="Reliability" class="sapUiSmallMarginBegin sapUiSmallMarginEnd detailStatus"></Label>
+										</VBox>
+										<VBox width="10%" height="100%" justifyContent="Center" alignItems="Center">
+											<ProgressIndicator class="sapUiSmallMarginBegin sapUiSmallMarginEnd sapUiSmallMarginBottom progressWidth" percentValue="97" displayValue="97%"
+												showValue="true" state="Success" displayOnly="true"></ProgressIndicator>
+										</VBox>
+									</VBox>
+								</VBox>
+								<HBox width="100%" height="20%" justifyContent="Center">
+									<VBox width="33%" height="100%" class="optionTileTopRight" alignItems="Center" justifyContent="Center">
+										<Label text="Duration" class="optionText"></Label>
+										<Label text="5 weeks" class="optionType"></Label>
+									</VBox>
+									<VBox width="34%" height="100%" class="optionTileTopRight" alignItems="Center" justifyContent="Center">
+										<Label text="Cost" class="optionText"></Label>
+										<Label text="$6.1M" class="optionType"></Label>
+									</VBox>
+									<VBox width="33%" height="100%" class="optionTileTop" alignItems="Center" justifyContent="Center">
+										<Label text="Success" class="optionText"></Label>
+										<Label text="98%" class="optionType"></Label>
+									</VBox>
+								</HBox>
+							</VBox>
+							<VBox width="78%" alignItems="Center" class="sapUiSmallMargin sapUiLargeMarginTop" height="85%">
+									<!--<HBox width="60%" height="15%" justifyContent="Center" class="sapUiLargeMarginTop floatSubPanel2">-->
+									<core:Icon src="sap-icon://sys-enter" color="#32d632" size="10rem" class="sapUiSmallMargin"/>
+									<Label text="Option C Selected" class="dashStatGreen sapUiTinyMargin" design="Bold"/>
+									<!--</HBox>-->
+									<HBox width="70%" height="10%" justifyContent="Center" class="sapUiMediumMarginTop">
+										<core:Icon src="sap-icon://example" color="#ffffff" size="1.3rem" class="sapUiSmallMargin"/>
+										<Label text="Extend asset lifetime to 20 years" class="dashStatGreySmall sapUiTinyMargin sapUiSmallMarginTop"/>
+									</HBox>
+									<HBox width="70%" height="10%" justifyContent="Center" class="sapUiMediumMarginTop">
+										<core:Icon src="sap-icon://example" color="#ffffff" size="1.3rem" class="sapUiSmallMargin"/>
+										<Label text="Mitigate breakdowns from old asset" class="dashStatGreySmall sapUiTinyMargin sapUiSmallMarginTop"/>
+									</HBox>
+									<HBox width="70%" height="10%" justifyContent="Center" class="sapUiMediumMarginTop">
+										<core:Icon src="sap-icon://example" color="#ffffff" size="1.3rem" class="sapUiSmallMargin"/>
+										<Label text="Prevent costly propeller damage" class="dashStatGreySmall sapUiTinyMargin sapUiSmallMarginTop"/>
+									</HBox>
+								</VBox>
+						</HBox>
+					</VBox>
+					<VBox id="model_panel" width="99%" class="sapUiTinyMargin sapUiLargeMarginTop floatPanel" height="70%" justifyContent="Center"
+						alignItems="Center" visible="false">
+						<VBox width="99%" height="98%">
+							<HBox width="100%" height="98%" justifyContent="SpaceAround" alignItems="Center">
+								<VBox width="49%" height="100%" justifyContent="Center">
+									<VBox width="100%" height="69%" class="sapUiSmallMarginTop">
+										<vk:Viewer id="viewer" toolbarTitle="" enableToolbar="false" showAllHotspots="false" enableProgressIndicator="false" width="100%"
+											height="470px" showSceneTree="false" showStepNavigation="false" showStepNavigationThumbnails="false" enableFullScreen="true"></vk:Viewer>
+									</VBox>
+									<VBox width="100%" height="29%" class="sapUiTinyMarginTop">
+										<List class="listCSS">
+											<CustomListItem class="listCSS">
+												<HBox>
+													<VBox width="10%" alignItems="Center">
+														<core:Icon color="Critical" size="2rem" src="sap-icon://warning" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom"/>
+													</VBox>
+													<VBox width="90%" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
+														<Link text="Regular Maintenance Due" press="handlePress"/>
+														<Label text="Major"/>
+													</VBox>
+												</HBox>
+											</CustomListItem>
+											<CustomListItem class="listCSS">
+												<HBox>
+													<VBox width="10%" alignItems="Center">
+														<core:Icon color="Neutral" size="2rem" src="sap-icon://status-critical" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom"/>
+													</VBox>
+													<VBox width="90%" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
+														<Link text="Startup Issues Logged" press="handlePress"/>
+														<Label text="Minor"/>
+													</VBox>
+												</HBox>
+											</CustomListItem>
+											<CustomListItem class="listCSS">
+												<HBox>
+													<VBox width="10%" alignItems="Center">
+														<core:Icon color="Negative" size="2rem" src="sap-icon://warning2" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom"/>
+													</VBox>
+													<VBox width="90%" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
+														<Link text="Propeller Failure" press="handlePress"/>
+														<Label text="Major"/>
+													</VBox>
+												</HBox>
+											</CustomListItem>
+										</List>
+									</VBox>
+								</VBox>
+								<VBox width="49%" height="99%" class="missionTile sapUiMediumMarginTop">
+									<acc:ChartJSControl width="500" height="400" responsive="true" chartType="line" id="modelChart" data="{componentModel>/data}"
+										options="{title: {display: 'true', text: 'Stress Comparison (KSI)', fontColor: 'white', fontSize: 18}, legend: { labels: { fontColor: 'white', fontSize: 12 } }, scales: { xAxes:[{gridLines: { color: 'white'}, ticks: {fontColor: 'white', fontSize: 12}}], yAxes: [{ display: true, ticks: { fontColor: 'white', fontSize: 12, beginAtZero: true } }]}}"/>
+								</VBox>
+							</HBox>
+						</VBox>
+					</VBox>
+				</VBox>
+			</content>
+		</Page>
+	</App>
+</mvc:View>
